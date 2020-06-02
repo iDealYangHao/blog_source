@@ -1,12 +1,10 @@
-
 clone_depth: 5
 
 environment:
-  my_variable:
-    secure: l8Prrhaz61VU3OqR7S5g8U/DBcbu2ZV7ZC5OZZEwuOu/7r9+tbvEOR1Hx/BXrjVl
-    
+    access_token:
+        secure: llOOjhQdJEKM2qlvi5DrVFayvnwcpuLy9e1957p35U6FndAd5yWz+V1V/leGlrqL
 install:
-    - ps: Install-Product node  # 默认node版本太老
+    - ps: Install-Product node
     - node --version
     - npm --version
     - npm install
@@ -20,7 +18,7 @@ artifacts:
     
 on_success:
     - git config --global credential.helper store
-    - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com"
+    - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
     - git config --global user.email "%GIT_USER_EMAIL%"
     - git config --global user.name "%GIT_USER_NAME%"
     - git clone --depth 5 -q --branch=%TARGET_BRANCH% %STATIC_SITE_REPO% %TEMP%\static-site
@@ -30,8 +28,5 @@ on_success:
     - SETLOCAL EnableDelayedExpansion & robocopy "%APPVEYOR_BUILD_FOLDER%\public" "%TEMP%\static-site" /e & IF !ERRORLEVEL! EQU 1 (exit 0) ELSE (IF !ERRORLEVEL! EQU 3 (exit 0) ELSE (exit 1))
     - git add -A
     - git commit -m "Update Static Site"
-    - git branch
-    - git log --oneline
-    #- git remote add origin https://github.com/iDealYangHao/iDealYangHao.github.io.git
-    - git push origin master
-    - appveyor AddMessage "Static Site Updated"
+    - git push origin %TARGET_BRANCH%
+- appveyor AddMessage "Static Site Updated"
