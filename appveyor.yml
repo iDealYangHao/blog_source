@@ -30,5 +30,5 @@ on_success:
     - git add -A
     - git commit -m "Update Static Site"
     - git remote set-url origin %STATIC_SITE_REPO%
-    - git push origin %TARGET_BRANCH%
+    - git push
     - appveyor AddMessage "Static Site Updated"
