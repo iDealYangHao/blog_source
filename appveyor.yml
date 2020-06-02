@@ -2,8 +2,9 @@
 clone_depth: 5
 
 environment:
-    access_token:
-        secure: 462d593d4e75c0fc33d5e06c029219b6a5443a5c# 自己的加密token
+  my_variable:
+    secure: l8Prrhaz61VU3OqR7S5g8U/DBcbu2ZV7ZC5OZZEwuOu/7r9+tbvEOR1Hx/BXrjVl
+    
 install:
     - ps: Install-Product node  # 默认node版本太老
     - node --version
