@@ -1,7 +1,11 @@
 clone_depth: 5
 
 environment:
-  access_token:
+ STATIC_SITE_REPO: https://github.com/iDealYangHao/iDealYangHao.github.io.git
+ TARGET_BRANCH: master
+ GIT_USER_EMAIL: idealyanghao@gmail.com
+ GIT_USER_NAME: yanghao
+ access_token:
     secure: vgiMK9y+drE8tKGX9mkUou5LU/I8xYTt2Uap3BRoFMC9J9PG+94ooUbOT/H0YRyU
 
 install:
