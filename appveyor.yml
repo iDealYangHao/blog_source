@@ -1,36 +1,33 @@
+
 clone_depth: 5
 
 environment:
- STATIC_SITE_REPO: https://github.com/iDealYangHao/iDealYangHao.github.io.git
- TARGET_BRANCH: master
- GIT_USER_EMAIL: idealyanghao@gmail.com
- GIT_USER_NAME: yanghao
- access_token:
-    secure: vgiMK9y+drE8tKGX9mkUou5LU/I8xYTt2Uap3BRoFMC9J9PG+94ooUbOT/H0YRyU
-
+    access_token:
+        secure: vgiMK9y+drE8tKGX9mkUou5LU/I8xYTt2Uap3BRoFMC9J9PG+94ooUbOT/H0YRyU# 自己的加密token
 install:
-  - ps: Install-Product node ''
-  - node --version
-  - npm --version
-  - npm install
-  - npm install hexo-cli -g
-  # and other package you need
-
+    - ps: Install-Product node 6.9 # 默认node版本太老
+    - node --version
+    - npm --version
+    - npm install
+    - npm install hexo-cli -g
+    
 build_script:
-  - hexo generate
-
+    - hexo generate
+    
 artifacts:
-  - path: public
-
+    - path: public
+    
 on_success:
-  - git config --global credential.helper store
-  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
-  - git config --global user.email "%GIT_USER_EMAIL%"
-  - git config --global user.name "%GIT_USER_NAME%"
-  - git clone --depth 5 -q --branch=%TARGET_BRANCH% %STATIC_SITE_REPO% %TEMP%\static-site
-  - cd %TEMP%\static-site
-  - del * /f /q
-  - for /d %%p IN (*) do rmdir "%%p" /s /q
-  - SETLOCAL EnableDelayedExpansion & robocopy "%APPVEYOR_BUILD_FOLDER%\public" "%TEMP%\static-site" /e & IF !ERRORLEVEL! EQU 1 (exit 0) ELSE (IF !ERRORLEVEL! EQU 3 (exit 0) ELSE (exit 1))
-  - git add -A
-  - if "%APPVEYOR_REPO_BRANCH%"=="master" if not defined APPVEYOR_PULL_REQUEST_NUMBER (git diff --quiet --exit-code --cached || git commit -m "Update Static Site" && git push origin %TARGET_BRANCH% && appveyor AddMessage "Static Site Updated")
+    - git config --global credential.helper store
+    - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
+    - git config --global user.email "%GIT_USER_EMAIL%"
+    - git config --global user.name "%GIT_USER_NAME%"
+    - git clone --depth 5 -q --branch=%TARGET_BRANCH% %STATIC_SITE_REPO% %TEMP%\static-site
+    - cd %TEMP%\static-site
+    - del * /f /q
+    - for /d %%p IN (*) do rmdir "%%p" /s /q
+    - SETLOCAL EnableDelayedExpansion & robocopy "%APPVEYOR_BUILD_FOLDER%\public" "%TEMP%\static-site" /e & IF !ERRORLEVEL! EQU 1 (exit 0) ELSE (IF !ERRORLEVEL! EQU 3 (exit 0) ELSE (exit 1))
+    - git add -A
+    - git commit -m "Update Static Site"
+    - git push origin %TARGET_BRANCH%
+    - appveyor AddMessage "Static Site Updated"
