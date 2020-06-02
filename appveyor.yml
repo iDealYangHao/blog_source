@@ -31,5 +31,6 @@ on_success:
     - git commit -m "Update Static Site"
     - git branch
     - git log --oneline
+    - git remote add origin https://github.com/iDealYangHao/iDealYangHao.github.io.git
     - git push origin master
     - appveyor AddMessage "Static Site Updated"
