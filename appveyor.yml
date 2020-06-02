@@ -5,7 +5,7 @@ environment:
     access_token:
         secure: vgiMK9y+drE8tKGX9mkUou5LU/I8xYTt2Uap3BRoFMC9J9PG+94ooUbOT/H0YRyU# 自己的加密token
 install:
-    - ps: Install-Product node 6.9 # 默认node版本太老
+    - ps: Install-Product node  # 默认node版本太老
     - node --version
     - npm --version
     - npm install
