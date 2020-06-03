@@ -1,7 +1,7 @@
 ---
-title: How's my blog set up?
+title: How is my blog set up?
 date: 2020-06-02 23:47:30
-tags:Tutorial
+tags: Tutorial
 ---
 
 # Some Tips
