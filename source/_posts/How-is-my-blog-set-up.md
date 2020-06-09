@@ -2,6 +2,7 @@
 title: How is my blog set up?
 date: 2020-06-02 23:47:30
 tags: Tutorial
+Categories: 
 ---
 
 # Some Tips
