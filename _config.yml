@@ -100,3 +100,9 @@ theme: next
 deploy:
     type: git
     repo: https://github.com/iDealYangHao/iDealYangHao.github.io.git
+
+search:
+    path: search.xml
+    field: all
+    format: html
+    limit: 10000
