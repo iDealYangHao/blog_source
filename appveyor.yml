@@ -17,6 +17,9 @@ build_script:
     
 artifacts:
     - path: public
+
+install:
+    - npm install hexo-generator-sitemap --save
     
 on_success:
     - git config --global credential.helper store
