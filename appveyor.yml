@@ -15,7 +15,7 @@ install:
 build_script:
     - hexo generate
     
-artifacts:ß
+artifacts:
     - path: public
 
 on_success:
