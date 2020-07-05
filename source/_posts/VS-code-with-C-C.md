@@ -31,7 +31,7 @@ categories:
 
   假设你要写C++代码，我们就先建立一个文件夹：`C:\vs_cpp\`。进去了建立一个`.vscode`文件夹，然后在`.vscode`里面建立launch.json和task.json
 
-- **写代码就在`.vscode`里面写**
+- **写代码就在`.vscode`里面写**，也可以在vs_cpp下写
 
 ```json
 //launch.json
@@ -106,7 +106,7 @@ categories:
 
 - 新建一个文件夹A,在里面新建`.vscode`,然后进去新建两个json文件!
 
-  ![](https://raw.githubusercontent.com/iDealYangHao/blogImages/master/截屏2020-07-05 下午6.49.13.png)
+  ![截屏2020-07-05 下午7.20.38](https://raw.githubusercontent.com/iDealYangHao/blogImages/master/%E6%88%AA%E5%B1%8F2020-07-05%20%E4%B8%8B%E5%8D%887.20.38.png)
 
 json文件如下：
 
