@@ -5,8 +5,8 @@ environment:
         secure: llOOjhQdJEKM2qlvi5DrVFayvnwcpuLy9e1957p35U6FndAd5yWz+V1V/leGlrqL
 install:
     - ps: Install-Product node
-    - node --version
-    - npm --version
+#    - node --version
+#    - npm --version
     - npm install
     - npm install hexo-cli -g
     - npm install hexo-generator-search --save
