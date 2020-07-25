@@ -15,3 +15,5 @@ git pull origin master --rebase
 git push --force
 ```
 
+**git commit --amend**
+
