@@ -15,5 +15,16 @@ git pull origin master --rebase
 git push --force
 ```
 
-**git commit --amend**
+## git config
+
+git可以进行一些配置,让git在使用的时候更顺手
+
+```
+//加了config代表全局都这样配置,不加代表只在本文件夹内这样配置
+git config <--global> user.name "your name" 
+git config <--global> user.email "your@email.com" 
+
+//记住用户名和密码,执行完了这条命令后,git push推送时输入一次账号密码就可以记住了
+git config <--global> credential.helper store
+```
 
