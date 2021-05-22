@@ -99,7 +99,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
     type: git
-    repo: https://github.com/iDealYangHao/iDealYangHao.github.io.git
+    repo: git@github.com:iDealYangHao/blog_source.git
 
 search:
     path: search.xml
