@@ -20,24 +20,23 @@
     var CONFIG = {"hostname":"idealyanghao.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="初衷来源于我的毕业设计。当时导师要求做一个图像压缩算法的项目，要求有程序展示效果，但是我当时不会Qt，MFC也不会，就没法做一个可交互的界面了，强行用控制台交互… 现在正在从事于Qt开发，主要是用Qt开发UOS的桌面部件，但是我还是很喜欢OpenCV的，所以想把二者结合起来。为什么基于macOS，不谈。">
+  <meta name="description" content="BasicLayoutsQt一共有四种layout，分别是QBoxLayout、QFormLayout、QGridLayout和QStackedLayout. QBoxLayoutQBoxLayout是QHBoxLayout、QVBoxLayout的基类，分别是水平和竖直方向的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenCV &amp; Qt On MacOS">
-<meta property="og:url" content="https://idealyanghao.github.io/2020/06/20/OpenCV-Qt-On-MacOS/index.html">
+<meta property="og:title" content="Qt learning 1:layouts">
+<meta property="og:url" content="https://idealyanghao.github.io/2021/05/22/Qt-learning-1-layouts/index.html">
 <meta property="og:site_name" content="YangHao">
-<meta property="og:description" content="初衷来源于我的毕业设计。当时导师要求做一个图像压缩算法的项目，要求有程序展示效果，但是我当时不会Qt，MFC也不会，就没法做一个可交互的界面了，强行用控制台交互… 现在正在从事于Qt开发，主要是用Qt开发UOS的桌面部件，但是我还是很喜欢OpenCV的，所以想把二者结合起来。为什么基于macOS，不谈。">
+<meta property="og:description" content="BasicLayoutsQt一共有四种layout，分别是QBoxLayout、QFormLayout、QGridLayout和QStackedLayout. QBoxLayoutQBoxLayout是QHBoxLayout、QVBoxLayout的基类，分别是水平和竖直方向的。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/%E6%88%AA%E5%B1%8F2020-06-20%20%E4%B8%8B%E5%8D%889.47.47.png">
-<meta property="article:published_time" content="2020-06-20T12:42:31.000Z">
-<meta property="article:modified_time" content="2021-05-22T04:00:38.569Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522215333.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522225847.png">
+<meta property="article:published_time" content="2021-05-22T12:48:38.000Z">
+<meta property="article:modified_time" content="2021-05-22T15:01:06.904Z">
 <meta property="article:author" content="YangHao">
-<meta property="article:tag" content="Qt">
-<meta property="article:tag" content="OpenCV">
-<meta property="article:tag" content="macOS">
+<meta property="article:tag" content="Qt learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/%E6%88%AA%E5%B1%8F2020-06-20%20%E4%B8%8B%E5%8D%889.47.47.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522215333.png">
 
-<link rel="canonical" href="https://idealyanghao.github.io/2020/06/20/OpenCV-Qt-On-MacOS/">
+<link rel="canonical" href="https://idealyanghao.github.io/2021/05/22/Qt-learning-1-layouts/">
 
 
 <script id="page-configurations">
@@ -50,7 +49,7 @@
   };
 </script>
 
-  <title>OpenCV & Qt On MacOS | YangHao</title>
+  <title>Qt learning 1:layouts | YangHao</title>
   
 
 
@@ -198,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://idealyanghao.github.io/2020/06/20/OpenCV-Qt-On-MacOS/">
+    <link itemprop="mainEntityOfPage" href="https://idealyanghao.github.io/2021/05/22/Qt-learning-1-layouts/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -211,7 +210,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          OpenCV & Qt On MacOS
+          Qt learning 1:layouts
         </h1>
 
         <div class="post-meta">
@@ -220,16 +219,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-06-20 20:42:31" itemprop="dateCreated datePublished" datetime="2020-06-20T20:42:31+08:00">2020-06-20</time>
+              <time title="Created: 2021-05-22 20:48:38 / Modified: 23:01:06" itemprop="dateCreated datePublished" datetime="2021-05-22T20:48:38+08:00">2021-05-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-05-22 12:00:38" itemprop="dateModified" datetime="2021-05-22T12:00:38+08:00">2021-05-22</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -237,10 +230,6 @@
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/Qt/" itemprop="url" rel="index"><span itemprop="name">Qt</span></a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OpenCV/" itemprop="url" rel="index"><span itemprop="name">OpenCV</span></a>
                 </span>
             </span>
 
@@ -255,22 +244,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>初衷来源于我的毕业设计。当时导师要求做一个图像压缩算法的项目，要求有程序展示效果，但是我当时不会Qt，MFC也不会，就没法做一个可交互的界面了，强行用控制台交互…</p>
-<p>现在正在从事于Qt开发，主要是用Qt开发UOS的桌面部件，但是我还是很喜欢OpenCV的，所以想把二者结合起来。为什么基于macOS，不谈。</p>
-</blockquote>
-<a id="more"></a>
-
-<h1 id="一、安装Qt和OpenCV"><a href="#一、安装Qt和OpenCV" class="headerlink" title="一、安装Qt和OpenCV"></a>一、安装Qt和OpenCV</h1><p>​        网上都有教程，我假设你已经装好了，如果不会，请自行Google。值得一提的是OpenCV记得用<code>brew install opencv</code>来安装，具体原因未知（道听途说：手动编译的OpenCV就是添加不了动态库）。什么？不知道brew！？继续Google…</p>
-<h1 id="二、添加链接库"><a href="#二、添加链接库" class="headerlink" title="二、添加链接库"></a>二、添加链接库</h1><p>​        我们是在Qt Creator上开发的，你问我为什么不用Xcode？不好意思，我不会配置Qt跑在Xcode上，只会配置OpenCV的，所以我选择在Qt Creator上开发，添加OpenCV的库就行了。</p>
-<p>​        在<code>.pro</code>文件中添加相关语句就行了。什么.pro?请关上电脑…主要有以下两个重点，只要添加好了，就可以成功运行你的Qt &amp; OpenCv程序了。</p>
-<h2 id="1-添加头文件路径"><a href="#1-添加头文件路径" class="headerlink" title="1.添加头文件路径"></a>1.添加头文件路径</h2><p><code>INCLUDEPATH  += /usr/local/Cellar/opencv/4.3.0_3/include</code></p>
-<p>​        请你别照抄，分析一下语句好吗？这个是你brew安装的Qt的路径，我们要添加include文件的里面的内容，这样就可以<code>#include &lt;opencv2/opencv.hpp&gt;</code>了。如果你是用brew安装的，那这个路径基本就是这样，找不到usr文件？请关机…这个地方有个大坑，路径原本应该是这样的<code>/4.3.0_3/opencv4/include</code>,但是我建议你删掉<code>opencv4</code>这一层目录，免得后面会报错（反正我处理不好..）。重中之重是include路径，不管你怎么安装的，只要找到了OpenCV的indlude就行了。</p>
-<h2 id="2-添加链接库"><a href="#2-添加链接库" class="headerlink" title="2.添加链接库"></a>2.添加链接库</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LIBS += -L/usr/local/Cellar/opencv/<span class="number">4.3</span>.<span class="number">0</span>_3/lib \</span><br><span class="line">    -lopencv_core \</span><br><span class="line">    -lopencv_highgui \</span><br><span class="line">    -lopencv_imgproc \</span><br><span class="line">    -lopencv_imgcodecs \</span><br><span class="line">    -lnumeric \</span><br><span class="line">    -lopencv_features2d \</span><br></pre></td></tr></table></figure>
-
-<p>​        这个要注意 \ 前面是有空格的，另外路径，也请去找自己的路径，不要抄我的！<code>-L</code>和<code>-l</code>后面没有空格，<code>opencv_模块名</code>是一个个的链接库，不要加后缀，也不要加lib的前缀，为什么？我不知道…下面给一张图，再次强调一下inclue和lib。</p>
-<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/%E6%88%AA%E5%B1%8F2020-06-20%20%E4%B8%8B%E5%8D%889.47.47.png" alt="截屏2020-06-20 下午9.47.47"></p>
-<p>​        最后给出一个源码，我也觉得各位一定迫不及待的地想要试试配置成功了没有，<a href="https://github.com/iDealYangHao/Qt-OpenCV" target="_blank" rel="noopener">拿去吧</a>!最后一句，一定要修改源码里面和你有关的部分…!</p>
+        <h1 id="BasicLayouts"><a href="#BasicLayouts" class="headerlink" title="BasicLayouts"></a>BasicLayouts</h1><p>Qt一共有四种layout，分别是QBoxLayout、QFormLayout、QGridLayout和QStackedLayout.</p>
+<h2 id="QBoxLayout"><a href="#QBoxLayout" class="headerlink" title="QBoxLayout"></a>QBoxLayout</h2><p>QBoxLayout是QHBoxLayout、QVBoxLayout的基类，分别是水平和竖直方向的。</p>
+<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522215333.png" alt="截屏2021-05-22 下午9.33.41"></p>
+<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522225847.png" alt="截屏2021-05-22 下午10.58.36"></p>
 
     </div>
 
@@ -280,9 +257,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Qt/" rel="tag"># Qt</a>
-              <a href="/tags/OpenCV/" rel="tag"># OpenCV</a>
-              <a href="/tags/macOS/" rel="tag"># macOS</a>
+              <a href="/tags/Qt-learning/" rel="tag"># Qt learning</a>
           </div>
 
         
@@ -291,13 +266,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/06/02/How-is-my-blog-set-up/" rel="prev" title="How is my blog set up?">
-      <i class="fa fa-chevron-left"></i> How is my blog set up?
+    <a href="/2020/07/06/File-Compression/" rel="prev" title="File Compression">
+      <i class="fa fa-chevron-left"></i> File Compression
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/01/Git/" rel="next" title="Git">
-      Git <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -356,7 +328,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、安装Qt和OpenCV"><span class="nav-number">1.</span> <span class="nav-text">一、安装Qt和OpenCV</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、添加链接库"><span class="nav-number">2.</span> <span class="nav-text">二、添加链接库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-添加头文件路径"><span class="nav-number">2.1.</span> <span class="nav-text">1.添加头文件路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-添加链接库"><span class="nav-number">2.2.</span> <span class="nav-text">2.添加链接库</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BasicLayouts"><span class="nav-number">1.</span> <span class="nav-text">BasicLayouts</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#QBoxLayout"><span class="nav-number">1.1.</span> <span class="nav-text">QBoxLayout</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
