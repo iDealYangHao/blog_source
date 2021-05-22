@@ -161,7 +161,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Qt learning 1:layouts</title>
+    <title>Qt learning 1 : layouts</title>
     <url>/2021/05/22/Qt-learning-1-layouts/</url>
     <content><![CDATA[<h1 id="BasicLayouts"><a href="#BasicLayouts" class="headerlink" title="BasicLayouts"></a>BasicLayouts</h1><p>Qt一共有四种layout，分别是QBoxLayout、QFormLayout、QGridLayout和QStackedLayout.</p>
 <a id="more"></a>
