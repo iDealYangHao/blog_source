@@ -164,6 +164,8 @@
     <title>Qt learning 1:layouts</title>
     <url>/2021/05/22/Qt-learning-1-layouts/</url>
     <content><![CDATA[<h1 id="BasicLayouts"><a href="#BasicLayouts" class="headerlink" title="BasicLayouts"></a>BasicLayouts</h1><p>Qt一共有四种layout，分别是QBoxLayout、QFormLayout、QGridLayout和QStackedLayout.</p>
+<a id="more"></a>
+
 <h2 id="QBoxLayout"><a href="#QBoxLayout" class="headerlink" title="QBoxLayout"></a>QBoxLayout</h2><p>QBoxLayout是QHBoxLayout、QVBoxLayout的基类，分别是水平和竖直方向的。</p>
 <p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522215333.png" alt="截屏2021-05-22 下午9.33.41"></p>
 <p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210522225847.png" alt="截屏2021-05-22 下午10.58.36"></p>
