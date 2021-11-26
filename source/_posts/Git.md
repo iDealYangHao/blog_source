@@ -27,4 +27,4 @@ git config <--global> user.email "your@email.com"
 //记住用户名和密码,执行完了这条命令后,git push推送时输入一次账号密码就可以记住了
 git config <--global> credential.helper store
 ```
-
+## git
