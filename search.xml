@@ -127,6 +127,101 @@
       </tags>
   </entry>
   <entry>
+    <title>File Compression</title>
+    <url>/2020/07/06/File-Compression/</url>
+    <content><![CDATA[<blockquote>
+<p>由于项目需要，我要将一个项目打包成deb文件，这是一种Linux下的安装包，deb包里有两个压缩文件，格式是<code>.tar.xz</code>,这是经过双重压缩的文件，本文主要讲压缩方法，附带讲Qt调用Terminal。</p>
+</blockquote>
+<a id="more"></a>
+
+<h1 id="Qt调用Terminal"><a href="#Qt调用Terminal" class="headerlink" title="Qt调用Terminal"></a>Qt调用Terminal</h1><p>Qt中有个类：QProcess，很明显它是一个进程类，事实上Qt是新开了一个进程来进行bash操作，用法如下：</p>
+<ul>
+<li>运行一条命令</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">QProcess p;</span><br><span class="line">p.execute(<span class="string">"ls -al"</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行很多条命令，即shell脚本</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">QProcess p;</span><br><span class="line">p.execute(<span class="string">"bash"</span>,QStringList()&lt;&lt;<span class="string">"-c"</span>&lt;&lt;<span class="string">"/xxx/xxx.sh"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>备注：p.execute和p.start的区别不在此赘述</p>
+<h1 id="command-line压缩文件"><a href="#command-line压缩文件" class="headerlink" title="command line压缩文件"></a>command line压缩文件</h1><ol>
+<li><p>先说压缩命令的格式: tar  -[参数]  xx.tar /xxx/xxx/xxx.txt</p>
+<ol>
+<li>tar是Ｌinux／Ｕnix下的一个命令，可以用 man tar　查看</li>
+<li>参数是有很多的,常用的有x c v f等,x代表解压,c代表创建新压缩包,f表示文件名,v表示显示详细过程</li>
+<li>xx.tar表示你要压缩成什么名字</li>
+<li>/xxx/xxx/xxx.txt代表你想压缩的东西，可以是文件，也可以是文件夹</li>
+<li>示例：ar -vcf yanghao.tar /home/yanghao/Desktop/test</li>
+<li>两个注意点：<ol>
+<li>f参数是必须的，且放在参数的最后一位</li>
+<li>如果你的压缩名字指定了路径：/home/yanghao/yh.tar 那这个包再被解压的时候，就包含了/home/yanghao这个路径．所以建议在当前路径压缩</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>然后xz yanghao.tar,就得到了 yanghao.tar.xz</p>
+</li>
+<li><p>解压：tar -xf yanghao.tar.xz就直接解压了两层；</p>
+<p>如果你只想解压到tar这一层，那可以用xz -d yangaho.tar.xz，就生成了yanghao.tar</p>
+</li>
+<li><p>其他压缩命令，待续…</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Qt</category>
+      </categories>
+      <tags>
+        <tag>Qt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iPhone Changes Wallpapers</title>
+    <url>/2021/07/31/iPhone-Changes-Wallpapers/</url>
+    <content><![CDATA[<p>传统壁纸软件，有广告！很不爽！学会这个捷径，一键换iPhone壁纸。</p>
+<a id="more"></a>
+
+<h1 id="shortcuts-捷径-设置壁纸"><a href="#shortcuts-捷径-设置壁纸" class="headerlink" title="shortcuts(捷径)设置壁纸"></a>shortcuts(捷径)设置壁纸</h1><p>如图：设置流程，可以直接下载该<a href="https://www.icloud.com/shortcuts/1acdcf04148441f1abf5307ce0b2028f" target="_blank" rel="noopener">壁纸捷径</a></p>
+<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210731234308.jpg" alt="壁纸获取流程图"></p>
+<h1 id="Unsplash"><a href="#Unsplash" class="headerlink" title="Unsplash"></a>Unsplash</h1><p>这是一个开源图库，重点是<strong>免费</strong>！甚至你<strong>商用</strong>都可以，更甚至他们还开放了<strong>接口</strong>！<a href="https://unsplash.com" target="_blank" rel="noopener">unsplash</a>, 就是这么良心.</p>
+<h2 id="获取任意图片"><a href="#获取任意图片" class="headerlink" title="获取任意图片"></a>获取任意图片</h2><p>这是官方接口文档，仅对于低频获取的小型软件：<a href="https://source.unsplash.com" target="_blank" rel="noopener">https://source.unsplash.com</a> ，还有一个针对开发者用户的：<a href="https://unsplash.com/developers" target="_blank" rel="noopener">https://unsplash.com/developers</a> ，开发者接口需要注册才可以使用。对于壁纸更换，用前一个就行了，无需注册，给出链接，直接下载图片。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;最简单，直接随机获取一张</span><br><span class="line">https:&#x2F;&#x2F;source.unsplash.com&#x2F;random</span><br><span class="line">&#x2F;&#x2F;加个尺寸</span><br><span class="line">https:&#x2F;&#x2F;source.unsplash.com&#x2F;random&#x2F;800x600</span><br><span class="line">&#x2F;&#x2F;获取你喜欢的一个摄影师的作品（如果ta存在图库的话）</span><br><span class="line">https:&#x2F;&#x2F;source.unsplash.com&#x2F;user&#x2F;erondu&#x2F;1600x900</span><br><span class="line">&#x2F;&#x2F;获取你喜欢的摄影师喜欢的作品</span><br><span class="line">https:&#x2F;&#x2F;source.unsplash.com&#x2F;user&#x2F;erondu&#x2F;likes&#x2F;1600x900</span><br><span class="line">&#x2F;&#x2F;获取非随机照片，daily或者weekly，每天&#x2F;周只返回同一张图片</span><br><span class="line">https:&#x2F;&#x2F;source.unsplash.com&#x2F;daily</span><br><span class="line">&#x2F;&#x2F;获取包含某个对象的图片，比如自然主题类，里面还包含水的</span><br><span class="line">https:&#x2F;&#x2F;source.unsplash.com&#x2F;?nature,water</span><br><span class="line">&#x2F;&#x2F;你也可以找一张狗相关的图片，还带有具体尺寸，注意尺寸的位置不在最后了</span><br><span class="line">https:&#x2F;&#x2F;source.unsplash.com&#x2F;1600x900&#x2F;?dog</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;更详细的说明在官方</span><br><span class="line">https:&#x2F;&#x2F;source.unsplash.com</span><br></pre></td></tr></table></figure>
+
+<p>将上述任意一个地址填到壁纸shortcuts的文本中，然后，run it！</p>
+<p>对了，至于开发者才用到的接口，内容更加详细。但是我只是想换个壁纸呀～，后续如果在computer vision的学习中有需要大量图片，会专门看一下开发者接口的。其中一个场景就是：指定所有狗相关的图片，下载到本地，作为图片训练集，利用深度学习来让电脑认识“狗”。</p>
+]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>iPhone</tag>
+        <tag>unsplash</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Transform &#39;docx&#39; into pdf on windows</title>
+    <url>/2021/08/01/Transform-docx-into-pdf-on-windows/</url>
+    <content><![CDATA[<p>在存在大批量docx文件转换为pdf文件时，使用word的转换功能，打开一个转换一个，要是让你转换100个呢？市面上迅捷转换器做的不错，但是一次只能转换200个文件，而且是会员情况下。要是你需要处理20万个docx文件呢？</p>
+<a id="more"></a>
+
+<h1 id="条件准备"><a href="#条件准备" class="headerlink" title="条件准备"></a>条件准备</h1><p>windows 10电脑，装有word2016版及其以后，其他版本未测，情况未知。安装qt，如果你没有qt，可以现安装一个： <a href="https://download.qt.io/archive/qt/5.12/5.12.2/" target="_blank" rel="noopener">https://download.qt.io/archive/qt/5.12/5.12.2/</a> ，具体细节从略。</p>
+<p><img src="https://raw.githubusercontent.com/iDealYangHao/blogImages/master/20210801204028.png" alt="windows_qt"></p>
+<h1 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h1><p>Qt调用Microsoft的com组件，实现docx转换pdf操作，其实其他语言也可以调用这个com组件的，只不过Qt封装的比较好用。核心代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//新建一个word应用</span></span><br><span class="line">QAxObject *wordApplication = <span class="keyword">new</span> QAxObject(<span class="string">"Word.Application"</span>);</span><br><span class="line"><span class="comment">//并设置为处理文档模式,因为word还可以处理非docx的文件</span></span><br><span class="line">QAxObject *wordDoc = wordApplication&gt;querySubObject(<span class="string">"Documents"</span>);</span><br><span class="line"><span class="comment">//打开一个docx文件：inputfileName，比如：C:/Desktop/test.docx</span></span><br><span class="line">QAxObject *doc = wordDoc&gt;querySubObject(<span class="string">"Open(string,bool,bool)"</span>,</span><br><span class="line">  inputfileName,<span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="comment">//开始转换成pdf，OutputFileName由你自己决定,比如 C:/Desktop/test.pdf</span></span><br><span class="line">doc-&gt;querySubObject(<span class="string">"ExportAsFixedFormat(string, int ,bool)"</span>, </span><br><span class="line">  OutputFileName, <span class="number">17</span>, <span class="literal">false</span>);</span><br><span class="line"><span class="comment">//最后处理完毕了一定要把打开的docx文件给关闭了，不然处理太多了会卡死word</span></span><br><span class="line">doc-&gt;dynamicCall(<span class="string">"Close(bool)"</span>, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>具体参数请看微软官方的文档： <a href="https://docs.microsoft.com/zh-CN/office/vba/api/Word.Documents.Open" target="_blank" rel="noopener">https://docs.microsoft.com/zh-CN/office/vba/api/Word.Documents.Open</a> ，我不想啰里八嗦。</p>
+<p>如果你连代码也不想写，拿去吧！pdf的代码仓库： <a href="https://github.com/iDealYangHao/word2pdf.git" target="_blank" rel="noopener">https://github.com/iDealYangHao/word2pdf.git</a> ,万一不能运行，可以gmail我。</p>
+]]></content>
+      <categories>
+        <category>Qt</category>
+      </categories>
+      <tags>
+        <tag>Qt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>tags</title>
     <url>/tags/index.html</url>
     <content><![CDATA[]]></content>
