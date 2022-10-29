@@ -9,7 +9,7 @@ Categories:
 
 我采用的是[appveyor](https://ci.appveyor.com/login),使用github登陆，教程如下：
 
-<! --more-->
+<!--more-->
 
 # Some Tips
 
