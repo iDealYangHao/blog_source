@@ -22,7 +22,7 @@ git push --force
 git可以进行一些配置,让git在使用的时候更顺手
 
 ```
-//加了config代表全局都这样配置,不加代表只在本文件夹内这样配置
+//加了<--global>代表全局都这样配置,不加代表只在本文件夹内这样配置
 git config <--global> user.name "your name" 
 git config <--global> user.email "your@email.com" 
 
@@ -71,3 +71,12 @@ git branch -m oldName newName       //1.本地分支：修改打算更改的分�
 git push --delete origin oldName    //2.远程分支：删除远程的旧分支
 git push -u origin newName          //3.本地->远程：推到远程的新建分支上
 ```
+
+## 新建远程分支
+```
+git checkout -b newBranchName       //以当前分支的内容作为基准内容，新建一个分支，并切换过去
+git push                            //将本地的分支推到远程
+```
+
+## 删除本地分支
+`git branch --delete oldBranch`
