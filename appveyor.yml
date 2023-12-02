@@ -5,12 +5,12 @@ environment:
     secure: VRtBRMcVTWkrgR0AWGQtEjp4luoAIkiC2Y+5nfRcYTb2EAAloooXtAEH+e1e7uzV
 install:
     # - ps: Install-Product node
-   - node --version
-   - npm --version
+    - node --version
+    - npm --version
     - npm install
     - npm install hexo-cli -g
 
-    # - npm install hexo-generator-searchdb --save
+    - npm install hexo-generator-searchdb --save
     
 build_script:
     - hexo generate
