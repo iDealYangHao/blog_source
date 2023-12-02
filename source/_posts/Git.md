@@ -83,6 +83,10 @@ git push                            //将本地的分支推到远程
 
 ## 变基
 
-`git rebase`变基：
+- 原本的远程main分支有若干提交记录：commit id：A->B->C.
+- 拉取到本地新建dev分支，开发新功能，提交新commit：A->B->C->1->2.
+- 此时远程main分支提交了新的commit：A->B->C->D.
+- 将本地main分支更新到D的进度，再切换到dev分支：`git rebase main`
+- 再切回main分支：`git merge dev`
+- 此时本地main分支commit顺序为：A->B->C->D->1->2.
 
-![2023-12-01_14-40-33](https://raw.githubusercontent.com/iDealYangHao/blogImages/master/2023-12-01_14-40-33.png)
