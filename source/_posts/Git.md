@@ -80,3 +80,9 @@ git push                            //将本地的分支推到远程
 
 ## 删除本地分支
 `git branch --delete oldBranch`
+
+## 变基
+
+`git rebase`变基：
+
+![2023-12-01_14-40-33](https://raw.githubusercontent.com/iDealYangHao/blogImages/master/2023-12-01_14-40-33.png)
