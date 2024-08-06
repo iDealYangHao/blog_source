@@ -5,9 +5,7 @@ environment:
     secure: VRtBRMcVTWkrgR0AWGQtEjp4luoAIkiC2Y+5nfRcYTb2EAAloooXtAEH+e1e7uzV
 install:
     # - ps: Install-Product node
-	- nvm install 20.6.0
-	- nvm use 20.6.0
-    - npm install -g npm@9.8.1
+    - npm install
 	- node --version
 	- npm --version
     - npm install hexo-cli -g
