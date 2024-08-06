@@ -8,9 +8,8 @@ install:
 #- npm install
 - node --version
 - npm --version
-- ls
 - npm install hexo-cli -g
-
+- hexo -v
     #- npm install hexo-generator-searchdb --save
     
 build_script:
