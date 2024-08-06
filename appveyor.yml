@@ -5,7 +5,7 @@ environment:
     secure: VRtBRMcVTWkrgR0AWGQtEjp4luoAIkiC2Y+5nfRcYTb2EAAloooXtAEH+e1e7uzV
 install:
     # - ps: Install-Product node
-- npm install
+#- npm install
 - node --version
 - npm --version
 - npm install hexo-cli -g
