@@ -16,7 +16,7 @@ install:
     
 build_script:
     - hexo generate
-    
+- ls
 artifacts:
     - path: public
 
