@@ -8,8 +8,8 @@ install:
 #- npm install
 - node --version
 - npm --version
+- npm install
 - npm install hexo-cli -g
-- npm install --force
 - hexo -v
     #- npm install hexo-generator-searchdb --save
     
