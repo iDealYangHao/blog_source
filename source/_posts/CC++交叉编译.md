@@ -1,13 +1,9 @@
 ---
-title: Git
+title: C/C++交叉编译
 date: 2024-011-11 15:55:10
 tags: Cross Compile
 categories: Tools
-
-
 ---
-
-# C/C++交叉编译
 
 交叉编译区别于本地编译
 <!--more-->
